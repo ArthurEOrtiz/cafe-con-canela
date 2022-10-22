@@ -15,7 +15,7 @@ This is a React Application that I'm building for an assignment at Epicodus. The
 
 _Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen._ - [React Documentation](https://reactjs.org/docs/react-component.html) 
 
-###### Main Components 
+##### Main Components 
 * Header - Contains title of the site. 
 * Inventory Control - Parent Component and Class for controling the inventory components. 
 * Inventory List - All items presented as easy to read list.  
@@ -24,7 +24,11 @@ _Conceptually, components are like JavaScript functions. They accept arbitrary i
 * Submit New Invetory Button 
 
 ##### Control Components
-* Button - Toggle Inventory Control to add ticktes submit form
+* Button - Toggle Inventory Control to add ticktes submit form.
+
+##### Component Structure
+
+![ComponentDiagram](CafeConCanela.png)
 
 
 
