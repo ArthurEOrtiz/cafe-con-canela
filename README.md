@@ -19,7 +19,7 @@ _Conceptually, components are like JavaScript functions. They accept arbitrary i
 * Header - Contains title of the site. 
 * Inventory Control - Parent Component and Class for controling the inventory components. 
 * Inventory List - All items presented as easy to read list.  
-* Inventory Items - Individual items on the List. On Click, show details, edit and consume product.  
+* Inventory Items - Individual Inventory items. `onClick`: show details, edit and consume product.  
 * New Inventory Form
 * Submit New Invetory Button 
 

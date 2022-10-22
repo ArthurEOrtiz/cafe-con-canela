@@ -35,7 +35,8 @@ function InventoryList(){
       quantity={item.quantity}
       roast={item.roast}
       key={index}/>
-    )};
+    )}
+    <br />
     </React.Fragment>
   );
 }
