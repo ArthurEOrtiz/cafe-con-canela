@@ -15,11 +15,16 @@ This is a React Application that I'm building for an assignment at Epicodus. The
 
 _Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen._ - [React Documentation](https://reactjs.org/docs/react-component.html) 
 
+###### Main Components 
 * Header - Contains title of the site. 
 * Inventory Control - Parent Component and Class for controling the inventory components. 
-* Inventory List - All items presented as easy read list.  
-* Inventory Items - Individual items that will show on the List. On Click, show details, edit and consume product.  
-* Add Invetory - On Click, changes the state of the main body from the Inventory List to a New Inventory Form 
+* Inventory List - All items presented as easy to read list.  
+* Inventory Items - Individual items on the List. On Click, show details, edit and consume product.  
+* New Inventory Form
+* Submit New Invetory Button 
+
+##### Control Components
+* Button - Toggle Inventory Control to add ticktes submit form
 
 
 
