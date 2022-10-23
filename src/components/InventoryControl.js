@@ -90,7 +90,7 @@ class InventoryControl extends React.Component {
 
     if (this.state.editing) {
       visibleState = <EditItemForm 
-      ticket = {this.state.selectedItem} 
+      item = {this.state.selectedItem} 
       onEditItem = {this.handleEditingItem} />
       buttonText = "Back To Inventory";
     }
