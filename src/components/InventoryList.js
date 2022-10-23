@@ -9,6 +9,7 @@ function InventoryList(props){
     {props.inventoryList.map((item) =>
       <Item 
       whenItemClicked = { props.onItemSelection }
+      whenPoundSold = { props.onSellingPound }
       name={item.name}
       origin={item.origin}
       price={item.price}
@@ -24,7 +25,8 @@ function InventoryList(props){
 
 InventoryList.propTypes = {
   inventoryList: PropTypes.array,
-  onItemSelection: PropTypes.func
+  onItemSelection: PropTypes.func,
+  onSellingPound: PropTypes.func
 };
 
 export default InventoryList;

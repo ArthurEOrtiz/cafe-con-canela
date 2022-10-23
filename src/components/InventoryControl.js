@@ -67,6 +67,12 @@ class InventoryControl extends React.Component {
     });
   }
 
+  handleSellingPound = (id) => {
+    // const selectedItem = this.state.inventoryListArray.filter(item => item.id === id)[0]; 
+
+    console.log(this.state.inventoryListArray.filter(item => item.id === id)[0]);
+  }
+
   render() {
     let visibleState = null;
     let buttonText = null;
@@ -88,7 +94,10 @@ class InventoryControl extends React.Component {
     }
     else
     {
-      visibleState = <InventoryList inventoryList={this.state.inventoryListArray} onItemSelection={this.handleChangingSelectedItem} />;
+      visibleState = <InventoryList 
+      inventoryList={this.state.inventoryListArray} 
+      onItemSelection={this.handleChangingSelectedItem}
+      onSellingPound={this.handleSellingPound} />;
       buttonText = "Add Inventory";
     }
 

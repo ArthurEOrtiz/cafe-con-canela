@@ -6,15 +6,18 @@ function ItemDetail(props){
 
   return (
     <React.Fragment>
-      <h1>Item Details</h1>
+      <h2>Item Details</h2>
+      <hr/>
       <h3>{item.name}</h3>
       <p>Sacks On Hand: {item.quantity}</p>
       <p>Price per Sack: ${item.price}</p>
+      <p>Pounds On Hand, <em>130 lb per sack</em>: {130 * item.quantity} lb</p>
       <p>Roast: {item.roast}</p>
-      <p>Country of Origin: {item.origin}</p>
+      <p>Origin: {item.origin}</p>
       <p>ID : {item.id}</p>
       <button onClick={ props.onClickingEdit }>Update Item</button>
       <button onClick={() => onClickingDelete(item.id)}> Delete Item from List </button>
+      
       <hr/>
     </React.Fragment>
   );
