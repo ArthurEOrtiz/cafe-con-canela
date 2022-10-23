@@ -71,7 +71,7 @@ class InventoryControl extends React.Component {
 
   handleSellingPound = (id) => {
     const selectedItem = this.state.inventoryListArray.filter(item => item.id === id)[0]; 
-    if (selectedItem.quantity > 0.000)
+    if (selectedItem.quantity >= 0.007)
     {
       const newQuantity = selectedItem.quantity - (1/130)
       const modifiedItem = {...selectedItem, quantity: newQuantity}
