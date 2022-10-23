@@ -17,7 +17,8 @@ Item.propTypes = {
   orgin: PropTypes.string,
   price: PropTypes.number,
   quantity: PropTypes.number,
-  roast: PropTypes.string
+  roast: PropTypes.string,
+  id: PropTypes.string
 };
 
 export default Item;

@@ -7,7 +7,8 @@ class InventoryControl extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      formVisible: false
+      formVisible: false,
+      inventoryListArray: []
     };
   }
 
@@ -17,17 +18,25 @@ class InventoryControl extends React.Component {
     }));
   }
 
+  handleAddingNewInventory = (newItem) => {
+    const newInventoryListArray = this.state.inventoryListArray.concat(newItem);
+    this.setState({
+      inventoryListArray: newInventoryListArray, 
+      formVisible: false
+    });
+  }
+
   render() {
     let visibleState = null;
     let buttonText = null;
 
     if (this.state.formVisible){
-      visibleState = <NewInventoryForm />;
+      visibleState = <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventory} />
       buttonText = "Back To Inventory";
     }
     else
     {
-      visibleState = <InventoryList />;
+      visibleState = <InventoryList inventoryList={this.state.inventoryListArray} />;
       buttonText = "Add Inventory";
     }
 
