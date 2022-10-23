@@ -58,8 +58,10 @@ class InventoryControl extends React.Component {
     this.setState({editing: true});
   }
 
-  handleEditingItem = (selectedItem) => {
-    const editedInventoryListArray = this.state.inventoryListArray.filter(item => item.id !== this.state.selectedItem.id).concat(selectedItem);
+  handleEditingItem = (itemToEdit) => {
+    const editedInventoryListArray = this.state.inventoryListArray
+    .filter(item => item.id !== this.state.selectedItem.id)
+    .concat(itemToEdit);
     this.setState({
       inventoryListArray: editedInventoryListArray,
       editing: false,
@@ -68,17 +70,28 @@ class InventoryControl extends React.Component {
   }
 
   handleSellingPound = (id) => {
-    // const selectedItem = this.state.inventoryListArray.filter(item => item.id === id)[0]; 
-
-    console.log(this.state.inventoryListArray.filter(item => item.id === id)[0]);
+    const selectedItem = this.state.inventoryListArray.filter(item => item.id === id)[0]; 
+    if (selectedItem.quantity > 0.000)
+    {
+      const newQuantity = selectedItem.quantity - (1/130)
+      const modifiedItem = {...selectedItem, quantity: newQuantity}
+      const newInventoryListArray = this.state.inventoryListArray.filter(item => item.id !== id).concat(modifiedItem);
+      this.setState({
+        inventoryListArray: newInventoryListArray
+      });
+    } else {
+      console.log("No More Coffee");
+    }
   }
 
   render() {
     let visibleState = null;
     let buttonText = null;
 
-    if(this.state.editing) {
-      visibleState = <EditItemForm ticket = {this.state.selectedItem} onEditItem = {this.handleEditingItem} />
+    if (this.state.editing) {
+      visibleState = <EditItemForm 
+      ticket = {this.state.selectedItem} 
+      onEditItem = {this.handleEditingItem} />
       buttonText = "Back To Inventory";
     }
     else if (this.state.selectedItem != null){

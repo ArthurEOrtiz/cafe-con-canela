@@ -9,7 +9,7 @@ function ItemDetail(props){
       <h2>Item Details</h2>
       <hr/>
       <h3>{item.name}</h3>
-      <p>Sacks On Hand: {item.quantity}</p>
+      <p>Sacks On Hand: {item.quantity.toFixed(3)}</p>
       <p>Price per Sack: ${item.price}</p>
       <p>Pounds On Hand, <em>130 lb per sack</em>: {130 * item.quantity} lb</p>
       <p>Roast: {item.roast}</p>

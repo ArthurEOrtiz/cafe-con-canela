@@ -29,6 +29,7 @@ function ReusableForm(props) {
           type="number"
           name="quantity"
           min="1"
+          step="0.001"
           placeholder="Initial Quantity"
         />
         <br/>

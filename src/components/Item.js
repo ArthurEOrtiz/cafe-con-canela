@@ -8,9 +8,9 @@ function Item(props){
         <h3>{props.name}</h3>
         <p>Roast: {props.roast}</p>
         <p>Origin: {props.origin}</p>
-        <p>Sacks On Hand: {props.quantity}</p>
+        <p>Sacks On Hand: {props.quantity.toFixed(3)}</p>
         <p>Price per Sack: {props.price}</p>
-        <p>Pounds On Hand (130lb per sac): {130 * props.quantity}lb</p>
+        <p>Pounds On Hand (130lb per sac): {(130 * props.quantity).toFixed(0)}lb</p>
       </div>
       <div>
         <button type="button" onClick = {()=> props.whenPoundSold(props.id)}>Consume 1 lb</button>

@@ -2,7 +2,7 @@ import React from "react";
 import ReusableForm from "./ReusableForm";
 import PropTypes from "prop-types";
 
-function EditTicketForm (props) {
+function EditItemForm (props) {
   const { item } = props;
 
   function handleEditItemFormSubmission(event) {
@@ -26,9 +26,9 @@ function EditTicketForm (props) {
   );
 }
 
-EditTicketForm.propTypes = {
+EditItemForm.propTypes = {
   item: PropTypes.object,
   onEditItem: PropTypes.func
 };
 
-export default EditTicketForm;
+export default EditItemForm;
