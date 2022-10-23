@@ -9,8 +9,8 @@ function NewInventoryForm(props){
     props.onNewInventoryCreation({
       name: event.target.name.value,
       origin: event.target.origin.value,
-      price: event.target.price.value,
-      quantity: event.target.quantity.value,
+      price: parseFloat(event.target.price.value),
+      quantity: parseInt(event.target.quantity.value),
       roast: event.target.roast.value,
       id: v4()
     });

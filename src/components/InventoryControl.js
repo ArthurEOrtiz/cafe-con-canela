@@ -1,6 +1,7 @@
 import React from 'react';
 import InventoryList from './InventoryList';
 import NewInventoryForm from './NewInventoryForm';
+import ItemDetail from './ItemDetail';
 
 class InventoryControl extends React.Component {
 
@@ -8,14 +9,25 @@ class InventoryControl extends React.Component {
     super(props);
     this.state = {
       formVisible: false,
-      inventoryListArray: []
+      inventoryListArray: [],
+      selectedItem: null
     };
   }
 
   handleClick = () => {
-    this.setState(prevState => ({
-      formVisible: !prevState.formVisible
-    }));
+    if (this.state.selectedItem != null)
+    {
+      this.setState({
+        formVisible: false,
+        selectedItem: null
+      });
+    }
+    else 
+    {
+      this.setState(prevState => ({
+        formVisible: !prevState.formVisible,
+      }));
+    }
   }
 
   handleAddingNewInventory = (newItem) => {
@@ -26,17 +38,26 @@ class InventoryControl extends React.Component {
     });
   }
 
+  handleChangingSelectedItem = (id) => {
+    const selectedItem = this.state.inventoryListArray.filter(item => item.id === id)[0];
+    this.setState({selectedItem: selectedItem});
+  }
+
   render() {
     let visibleState = null;
     let buttonText = null;
 
-    if (this.state.formVisible){
-      visibleState = <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventory} />
+    if (this.state.selectedItem != null){
+      visibleState = <ItemDetail item={this.state.selectedItem} />
+      buttonText = "Back To Invntory";
+    }
+    else if (this.state.formVisible){
+      visibleState = <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventory} />;
       buttonText = "Back To Inventory";
     }
     else
     {
-      visibleState = <InventoryList inventoryList={this.state.inventoryListArray} />;
+      visibleState = <InventoryList inventoryList={this.state.inventoryListArray} onItemSelection={this.handleChangingSelectedItem} />;
       buttonText = "Add Inventory";
     }
 

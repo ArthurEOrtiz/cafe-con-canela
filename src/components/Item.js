@@ -4,10 +4,12 @@ import PropTypes from "prop-types";
 function Item(props){
   return (
     <React.Fragment>
-      <h3>{props.name}</h3>
-      <p>Sacks On Hand: {props.quantity}</p>
-      <p>Price per Sack: {props.price}</p>
-      <hr />
+      <div onClick = {()=> props.whenItemClicked(props.id)}>
+        <h3>{props.name}</h3>
+        <p>Sacks On Hand: {props.quantity}</p>
+        <p>Price per Sack: {props.price}</p>
+        <hr />
+      </div>
     </React.Fragment>
   );
 }
@@ -18,7 +20,8 @@ Item.propTypes = {
   price: PropTypes.number,
   quantity: PropTypes.number,
   roast: PropTypes.string,
-  id: PropTypes.string
+  id: PropTypes.string,
+  whenItemClicked: PropTypes.func
 };
 
 export default Item;
