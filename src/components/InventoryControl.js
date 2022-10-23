@@ -2,6 +2,7 @@ import React from 'react';
 import InventoryList from './InventoryList';
 import NewInventoryForm from './NewInventoryForm';
 import ItemDetail from './ItemDetail';
+import EditItemForm from './EditItemForm';
 
 class InventoryControl extends React.Component {
 
@@ -10,7 +11,8 @@ class InventoryControl extends React.Component {
     this.state = {
       formVisible: false,
       inventoryListArray: [],
-      selectedItem: null
+      selectedItem: null,
+      editing: false
     };
   }
 
@@ -19,7 +21,8 @@ class InventoryControl extends React.Component {
     {
       this.setState({
         formVisible: false,
-        selectedItem: null
+        selectedItem: null,
+        editing: false
       });
     }
     else 
@@ -43,13 +46,41 @@ class InventoryControl extends React.Component {
     this.setState({selectedItem: selectedItem});
   }
 
+  handleDeletingItem = (id) => {
+    const newInventoryListArray = this.state.inventoryListArray.filter(item => item.id !== id);
+    this.setState({
+      inventoryListArray: newInventoryListArray,
+      selectedItem: null
+    });
+  }
+
+  handleEditClick = () => {
+    this.setState({editing: true});
+  }
+
+  handleEditingItem = (selectedItem) => {
+    const editedInventoryListArray = this.state.inventoryListArray.filter(item => item.id !== this.state.selectedItem.id).concat(selectedItem);
+    this.setState({
+      inventoryListArray: editedInventoryListArray,
+      editing: false,
+      selectedItem: null
+    });
+  }
+
   render() {
     let visibleState = null;
     let buttonText = null;
 
-    if (this.state.selectedItem != null){
-      visibleState = <ItemDetail item={this.state.selectedItem} />
-      buttonText = "Back To Invntory";
+    if(this.state.editing) {
+      visibleState = <EditItemForm ticket = {this.state.selectedItem} onEditItem = {this.handleEditingItem} />
+      buttonText = "Back To Inventory";
+    }
+    else if (this.state.selectedItem != null){
+      visibleState = <ItemDetail 
+      item={this.state.selectedItem} 
+      onClickingDelete = {this.handleDeletingItem}
+      onClickingEdit = {this.handleEditClick}/>
+      buttonText = "Back To Inventory";
     }
     else if (this.state.formVisible){
       visibleState = <NewInventoryForm onNewInventoryCreation={this.handleAddingNewInventory} />;
