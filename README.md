@@ -2,6 +2,15 @@
 
 _by Arthur Edward Ortiz_
 
+### Technologies Used
+* HTML
+* CSS
+* Javascript
+* Markdown
+* React
+* JSX
+* ESLint
+
 ### Details
 
 This is a React Application that I'm building for an assignment at Epicodus. The basic purpose of this application is to act as a local busness inventory tracker. The users will have the ability too . . . 
@@ -31,6 +40,15 @@ _Conceptually, components are like JavaScript functions. They accept arbitrary i
 ![ComponentDiagram](CafeConCanela.png)
 
 
+#### Setup 
+
+* Clone repository to you local computer 
+* Open in your editor of choice
+* Open Terminal and in the root of the directory enter `npm run start`
+
+#### License
+MIT licence 
+_Copyright (c) Oct 23, 2022_
 
 
 
